@@ -21,5 +21,18 @@ public class ChatGPTController {
        return service.createCompletion(completionRequest);
 
     }
+    @PostMapping("/chat")
+    public String getChatMessages(@RequestBody ChatMessagePrompt prompt) {
+
+        // /v1/chat/completions ->
+        // gpt-4, gpt-4-0613, gpt-4-32k, gpt-4-32k-0613, gpt-3.5-turbo,
+        // gpt-3.5-turbo-0613, gpt-3.5-turbo-16k, gpt-3.5-turbo-16k-0613
+
+        OpenAiService service = new OpenAiService("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");
+        ChatCompletionRequest completionRequest = ChatCompletionRequest.builder().messages(prompt.getChatMessage())
+                .model("gpt-3.5-turbo-16k").build();
+        return service.createChatCompletion(completionRequest).getChoices().get(0).getMessage().getContent();
+    }
+
 
 }
