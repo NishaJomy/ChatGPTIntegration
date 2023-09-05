@@ -1,7 +1,6 @@
 # ChatGPTIntegration
 Chat GPT Integration with Spring Boot Project
 
-** Discuss the common integration approaches: **
 
 Option 1: ChatGPT as a separate service: Explain how to make HTTP requests to a ChatGPT service from the Spring Boot application. Demonstrate how to use RestTemplate or HttpClient to send a request and receive the response.
 
